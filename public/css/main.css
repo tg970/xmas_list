@@ -1,9 +1,29 @@
 body {
-  
+
+}
+img {
+  max-width: 100px;
+  max-height: 75px;
 }
 .container {
   margin: 0 auto;
 }
 .center {
   text-align: center;
+}
+.list {
+  margin: 0 auto;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+.list, h3, h5, p {
+  display: inline-block;
+}
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
