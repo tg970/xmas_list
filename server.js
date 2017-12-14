@@ -19,10 +19,10 @@ db.on( 'disconnected', () => console.log( 'Mongo Disconnected' ));
 mongoose.Promise = global.Promise;
 
 // open the connection to mongo
-db.on( 'open' , ()=>{});
+// db.on( 'open' , ()=>{});
 
 // Controllers
-// const wbinfoController = require( './controllers/wbinfoController' );
+const itemController = require( './controllers/itemController' );
 // const seedController = require( './controllers/seedController' );
 
 // Middleware
@@ -30,7 +30,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use( express.static( 'public' ));
 app.use(morgan('dev'));
-// app.use( '/wbinfo', wbinfoController );
+app.use( '/items', itemController );
 // app.use( '/seed', seedController );
 
 app.get('/', (req, res) => res.send('Welcome to Your Xmas List'));
