@@ -2,3 +2,4 @@
 
 ## Developers:
 ### Sean Byrne
+### Tyler Goodman
