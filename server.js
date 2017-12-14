@@ -1,40 +1,40 @@
-const express        = require( 'express' ),
-      mongoose       = require( 'mongoose' ),
-      port           = 3000 || process.env.PORT,
-      app            = express(),
-      db             = mongoose.connection;
+// DEPENDENCIES
+const express    = require('express');
+const mongoose   = require('mongoose');
+const morgan     = require('morgan');
+const app        = express();
+//const session    = require('express-session');
+require('pretty-error').start();
 
-mongoose.Promise   = global.Promise;
-const mongoURI  = 'mongodb://localhost/xmas_list';
+// CONFIG
+const PORT       = process.env.PORT || 3000;
+const mongoURI   = process.env.MONGODB_URI || 'mongodb://localhost/books_users_api'
 
 // Connect to Mongo
 mongoose.connect ( mongoURI , { useMongoClient: true});
-
-// Error / success
+const db = mongoose.connection;
 db.on( 'error', ( err ) => console.log( err.message + ' is Mongod not running?' ));
-db.on( 'connected', () => console.log( 'mongo connected: ', mongoURI ));
-db.on( 'disconnected', () => console.log( 'mongo disconnected' ));
+db.on( 'connected', () => console.log( 'Mongo OK: ', mongoURI ));
+db.on( 'disconnected', () => console.log( 'Mongo Disconnected' ));
+mongoose.Promise = global.Promise;
 
 // open the connection to mongo
-db.on( 'open' , ()=>{
-  console.log('Connection made!');
-});
+db.on( 'open' , ()=>{});
 
-app.use(express.urlencoded({ extended: false }));// extended: false - does not allow nested objects in query strings
-app.use(express.json());// returns middleware that only parses JSON
-
+// Controllers
 // const wbinfoController = require( './controllers/wbinfoController' );
 // const seedController = require( './controllers/seedController' );
 
+// Middleware
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use( express.static( 'public' ));
+app.use(morgan('dev'));
 // app.use( '/wbinfo', wbinfoController );
 // app.use( '/seed', seedController );
 
-app.use( express.static( 'public' ));
-
 app.get('/', (req, res) => res.send('Welcome to Your Xmas List'));
 
-app.listen( port, () => {
-    console.log('=======================');
-    console.log('Running on port ' + port);
-    console.log('=======================');
+app.listen(PORT, () => {
+   console.log('Server OK: ' + PORT);
 });
