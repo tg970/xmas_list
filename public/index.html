@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app='Xmas_List_App'>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/modal.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <script type="text/javascript" src="/js/app.js"></script>
+  </head>
+  <body ng-controller='MainController as ctrl'>
+    <div class="container">
+      <h1 class='center'>Xmas List</h1>
+
+      <form class="center" ng-submit='ctrl.addItem()'>
+        <input type="text" placeholder="Item" ng-model="ctrl.newForm.item" required>
+        <input type="text" placeholder="link" ng-model="ctrl.newForm.link"required>
+        <input type="text" placeholder="Image URL" ng-model="ctrl.newForm.img">
+        <input type="text" placeholder="$Price" ng-model="ctrl.newForm.price"> <br> <br>
+        <textarea placeholder="Description" rows="4" cols="80" ng-model="ctrl.newForm.desc">></textarea> <br>
+        <input type="submit">
+      </form>
+
+      <div class="list flexColumn">
+
+        <table class="itemsTable">
+         <tr ng-repeat='item in ctrl.items'>
+           <td><a href="{{item.link}}">{{item.item}}</a></td>
+           <td><img ng-src="{{item.img}}" alt=""></td>
+           <td>Price: ${{item.price}}</td>
+           <td>{{item.desc}}</td>
+           <td ng-click="ctrl.updateModal(item)"><i class="material-icons">settings_applications</i></td>
+           <td ng-click='ctrl.deleteItem(item._id)'>x</td>
+         </tr>
+       </table>
+
+        <!-- <div class="listItem" ng-repeat='item in ctrl.items'>
+
+
+          <a href="{{item.link}}">
+          <h3>{{item.item}}</h3></a>
+          <img ng-src="{{item.img}}" alt="">
+          <h5>Price: ${{item.price}}</h5>
+          <p>{{item.desc}}</p>
+          <button  type="button" ng-click='ctrl.deleteItem(item._id)'>X</button>
+        </div> -->
+      </div>
+
+
+      <div ng-include="'partials/editModal.html'"></div>
+
+
+    </div>
+  </body>
+</html>
