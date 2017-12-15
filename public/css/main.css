@@ -1,6 +1,19 @@
 body {
-
+   background-image: url('/assets/christmas-colour.png');
 }
+
+h1 {
+   font-family: 'Mountains of Christmas', cursive;
+   font-weight: 700;
+   font-size: 75px;
+   text-shadow:
+            -2px 2px 1px #fff,
+            -5px 5px 10px #fff,
+            0px 4px 5px #fff,
+            4px 4px 5px #fff,
+            3px -1px 5px #fff;
+}
+
 img {
   max-width: 75px;
   max-height: 50px;
@@ -11,15 +24,28 @@ img {
 .center {
   text-align: center;
 }
+form{
+   background-image: url('/assets/dust_scratches.png');
+   padding: 1em;
 
+}
 .list {
   max-width: 500px;
   /*border: 1px solid purple;*/
   margin: 20px auto;
+  background-image: url('/assets/doodles.png');
 }
 .alignRight {
   /*display: inline;*/
   text-align: right;
+}
+.ff {
+   font-family: 'Euphoria Script', cursive;
+   font-size: 25px;
+}
+a {
+   text-decoration: none;
+
 }
 .itemsTable td {
   /*width: 50px;*/

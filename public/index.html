@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css?family=Euphoria+Script|Mountains+of+Christmas:400,700" rel="stylesheet">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/modal.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
@@ -26,10 +27,10 @@
 
         <table class="itemsTable">
          <tr ng-repeat='item in ctrl.items'>
-           <td><a href="{{item.link}}">{{item.item}}</a></td>
+           <td><a class="ff" href="{{item.link}}">{{item.item}}</a></td>
            <td><img ng-src="{{item.img}}" alt=""></td>
-           <td>Price: ${{item.price}}</td>
-           <td>{{item.desc}}</td>
+           <td class="ff">Price: ${{item.price}}</td>
+           <td class="ff">{{item.desc}}</td>
            <td ng-click="ctrl.updateModal(item)"><i class="material-icons">settings_applications</i></td>
            <td ng-click='ctrl.deleteItem(item._id)'>x</td>
          </tr>
