@@ -11,19 +11,23 @@ img {
 .center {
   text-align: center;
 }
-.list {
-  margin: 0 auto;
-  border: 1px solid red;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-}
-.list, h3, h5, p {
-  display: inline-block;
-}
+
 .flexColumn {
+  border: 1px solid red;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+}
+.list {
+  max-width: 500px;
+  border: 1px solid purple;
+  margin: 10px auto;
+}
+.alignRight {
+  /*display: inline;*/
+  text-align: right;
+}
+.itemsTable {
+  
 }

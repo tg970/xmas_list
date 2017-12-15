@@ -5,6 +5,7 @@ app.controller('MainController', ['$http', function($http) {
   // this.test = 'What!';
 
   this.newForm = {};
+  this.updateForm = {};
 
   this.addItem = () => {
     // console.log('Submit button calls createHoliday function');
