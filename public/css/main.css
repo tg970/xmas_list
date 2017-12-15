@@ -6,6 +6,12 @@ h1 {
    font-family: 'Mountains of Christmas', cursive;
    font-weight: 700;
    font-size: 75px;
+   text-shadow:
+            -2px 2px 1px #fff,
+            -5px 5px 10px #fff,
+            0px 4px 5px #fff,
+            4px 4px 5px #fff,
+            3px -1px 5px #fff;
 }
 
 img {
