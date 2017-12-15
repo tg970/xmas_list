@@ -1,0 +1,16 @@
+<div class="modal" ng-class="(ctrl.edit ? 'edit' : '' )">
+   <form ng-submit="ctrl.updateItem()">
+      <div class="row">
+         <label for="item">Item</label>
+         <input type="text" ng-model="ctrl.currentEdit.item" placeholder="Item" id="item">
+         <label for="link">Link</label>
+         <input type="text" ng-model="ctrl.currentEdit.link" placeholder="Link URL" id="link">
+         <label for="img">Likes</label>
+         <input type="number" ng-model="ctrl.currentEdit.img" placeholder="Img URL" id="img">
+         <label for="desc">Description</label>
+         <textarea class="u-full-width" ng-model="ctrl.currentEdit.desc" placeholder="" id="description"></textarea>
+         <input type="submit" value="Update Item" class="updateBtn">
+         <button class="dontBtn" ng-click="ctrl.dontUpdate()"> Cancel Update </button>
+      </div>
+   </form>
+</div>
