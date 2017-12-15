@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/modal.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
@@ -25,11 +26,11 @@
 
         <table class="itemsTable">
          <tr ng-repeat='item in ctrl.items'>
-           <td>{{item.item}}</td>
+           <td><a href="{{item.link}}">{{item.item}}</a></td>
            <td><img ng-src="{{item.img}}" alt=""></td>
            <td>Price: ${{item.price}}</td>
            <td>{{item.desc}}</td>
-           <td ng-click="ctrl.updateModal(item)">@</td>
+           <td ng-click="ctrl.updateModal(item)"><i class="material-icons">settings_applications</i></td>
            <td ng-click='ctrl.deleteItem(item._id)'>x</td>
          </tr>
        </table>

@@ -1,14 +1,29 @@
 <div class="modal" ng-class="(ctrl.edit ? 'edit' : '' )">
    <form ng-submit="ctrl.updateItem()" class="center">
-      <label for="item">Item</label>
-      <input type="text" ng-model="ctrl.currentEdit.item" placeholder="Item" id="item">
-      <label for="link">Link</label>
-      <input type="text" ng-model="ctrl.currentEdit.link" placeholder="Link URL" id="link">
-      <label for="img">Img URL</label>
-      <input type="text" ng-model="ctrl.currentEdit.img" placeholder="Img URL" id="img">
-      <label for="desc">Description</label>
-      <textarea class="u-full-width" ng-model="ctrl.currentEdit.desc" placeholder="" id="description"></textarea>
-      <input type="submit" value="Update Item" class="updateBtn">
+     <div class="inlineBlock">
+       <label for="item">Item:</label><br>
+       <input type="text" ng-model="ctrl.currentEdit.item" placeholder="Item" id="item">
+     </div>
+
+     <div class="inlineBlock">
+       <label for="link">Link:</label><br>
+       <input type="text" ng-model="ctrl.currentEdit.link" placeholder="Link URL" id="link">
+     </div>
+
+      <div class="inlineBlock">
+        <label for="img">Img URL:</label><br>
+        <input type="text" ng-model="ctrl.currentEdit.img" placeholder="Img URL" id="img">
+      </div>
+
+      <div class="inlineBlock">
+        <label for="price">Price:</label><br>
+        <input type="text" placeholder="$Price" ng-model="ctrl.currentEdit.price" id="price">
+      </div>
+       <br>
+      <label for="desc">Description:</label><br>
+      <textarea class="u-full-width" ng-model="ctrl.currentEdit.desc" placeholder="" rows="4" cols="80" id="description"></textarea> <br>
+      <input class="inlineBlock" type="submit" value="Update Item" class="updateBtn">
+      <input type="button" class="dontBtn inlineBlock" ng-click="ctrl.dontUpdate()" value="Cancel">
    </form>
-   <button class="dontBtn" ng-click="ctrl.dontUpdate()"> Cancel Update </button>
+
 </div>

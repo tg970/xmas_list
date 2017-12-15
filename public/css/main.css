@@ -2,8 +2,8 @@ body {
 
 }
 img {
-  max-width: 100px;
-  max-height: 75px;
+  max-width: 75px;
+  max-height: 50px;
 }
 .container {
   margin: 0 auto;
@@ -12,22 +12,43 @@ img {
   text-align: center;
 }
 
-.flexColumn {
-  border: 1px solid red;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
 .list {
   max-width: 500px;
-  border: 1px solid purple;
-  margin: 10px auto;
+  /*border: 1px solid purple;*/
+  margin: 20px auto;
 }
 .alignRight {
   /*display: inline;*/
   text-align: right;
 }
+.itemsTable td {
+  /*width: 50px;*/
+  border-collapse: collapse;
+  margin-right: 10px;
+  border-bottom: 1px solid #ddd;
+  /*border: 1px solid black;*/
+  padding: 2px;
+  /*vertical-align: bottom;*/
+}
+.itemsTable td:nth-child(6) {
+  text-align: center;
+  background: red;
+}
+.itemsTable td:nth-child(5) {
+  text-align: center;
+}
+.itemsTable td:nth-child(2) {
+  text-align: center;
+}
+
+.itemsTable tr {
+  height: 50px;
+  border-bottom: 1px solid #ddd;
+}
 .itemsTable {
-  
+  width: 100%;
+}
+.inlineBlock {
+  display: inline-block;
+  margin-bottom: 20px;
 }
