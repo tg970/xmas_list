@@ -29,7 +29,7 @@
            <td><img ng-src="{{item.img}}" alt=""></td>
            <td>Price: ${{item.price}}</td>
            <td>{{item.desc}}</td>
-
+           <td ng-click="ctrl.updateModal(item)">@</td>
            <td ng-click='ctrl.deleteItem(item._id)'>x</td>
          </tr>
        </table>
@@ -47,7 +47,7 @@
       </div>
 
 
-      <div ng-include="'partials/editModel.html'"></div>
+      <div ng-include="'partials/editModal.html'"></div>
 
 
     </div>

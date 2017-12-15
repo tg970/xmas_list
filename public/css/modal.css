@@ -7,6 +7,7 @@
 }
 
 .modal {
+   background: gray;
   position: fixed;
   margin: 0 10vw;
   padding-top: 3em;

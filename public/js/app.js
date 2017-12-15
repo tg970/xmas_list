@@ -3,9 +3,10 @@ const app = angular.module('Xmas_List_App', []);
 app.controller('MainController', ['$http', function($http) {
   // console.log('Hey');
   // this.test = 'What!';
-
+  //this.items = [];
   this.newForm = {};
-  this.updateForm = {};
+  this.edit = false;
+  this.currentEdit = {};
 
   this.addItem = () => {
     // console.log('Submit button calls createHoliday function');
@@ -29,7 +30,7 @@ app.controller('MainController', ['$http', function($http) {
      }).then(response => {
        console.table(response.data);
        this.items = response.data;
-      //  console.log(this.items);
+        // console.log(this.items);
      }, error => {
        console.error(error.message);
      }).catch(err => console.error('Catch', err));
@@ -58,15 +59,32 @@ app.controller('MainController', ['$http', function($http) {
   }
 
 // Update Item
-  this.updateItem = (item) => {
+this.updateModal = ( item ) => {
+   console.log('full edit running...', item);
+   this.edit = true;
+   this.currentEdit = angular.copy(item)
+}
 
+  this.updateItem = () => {
+     //console.log('edit submit...', this.currentEdit);
     $http({
       method: 'PUT',
-      url: '/items/' + item._id,
-      data: this.updateForm
+      url: '/items/' + this.currentEdit._id,
+      data: this.currentEdit
     }).then(response => {
-      console.log(response.data);
+      console.log('responce:', response.data);
+      console.table(this.items);
+      const updateByIndex = this.items.findIndex(item => item._id === response.data._id)
+      console.log('update ind:', updateByIndex);
+      this.items.splice(updateByIndex , 1, response.data)
     }).catch(err => console.error('Catch', err));
-  }
+    this.edit = false;
+   this.currentEdit = {};
+   };
+
+   this.dontUpdate = () => {
+      this.edit = false;
+      this.currentEdit = {};
+   }
 
 }]);
